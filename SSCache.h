@@ -1,14 +1,14 @@
 //
-//  SYCache.h
-//  SYCache
+//  SSCache.h
+//  SSCache
 //
 //  Created by Sam Soffes on 10/31/11.
-//  Copyright (c) 2011 Synthetic. All rights reserved.
+//  Copyright (c) 2011-2013 Sam Soffes. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SYCache : NSObject
+@interface SSCache : NSObject
 
 @property (nonatomic, copy, readonly) NSString *name;
 
@@ -16,7 +16,7 @@
 /// @name Getting the Shared Cache
 ///-------------------------------
 
-+ (SYCache *)sharedCache;
++ (SSCache *)sharedCache;
 
 
 ///-------------------
@@ -50,9 +50,9 @@
 
 /**
  Returns the path to the object on disk associated with a given key.
- 
+
  @param key An object identifying the value.
- 
+
  @return Path to object on disk or `nil` if no object exists for the given `key`.
  */
 - (NSString *)pathForKey:(NSString *)key;
@@ -62,7 +62,7 @@
 
 #if TARGET_OS_IPHONE
 
-@interface SYCache (UIImageAdditions)
+@interface SSCache (UIImageAdditions)
 
 - (UIImage *)imageForKey:(NSString *)key;
 - (void)imageForKey:(NSString *)key usingBlock:(void (^)(UIImage *image))block;
