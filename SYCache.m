@@ -202,6 +202,10 @@
 		illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString: @"/\\?%*|\"<>:/" ];
 	});
   
+  if (!illegalFileNameCharacters) {
+    return fileName;
+  }
+  
 	return [ [fileName componentsSeparatedByCharactersInSet: illegalFileNameCharacters] componentsJoinedByString: @""];
 }
 
