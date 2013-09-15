@@ -285,7 +285,14 @@
 
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {
+	// Invalid without a key
+	if (!key) {
+		return;
+	}
+
+	// If there's no image, delete the key.
 	if (!image) {
+		[self removeObjectForKey:key];
 		return;
 	}
 
