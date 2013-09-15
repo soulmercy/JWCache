@@ -8,8 +8,16 @@ The API is simple.
 
 ``` objective-c
 - (id)objectForKey:(NSString *)key;
-- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id object))block;
-- (void)setObject:(id)object forKey:(NSString *)key;
+- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id <NSCopying> object))block;
+- (void)setObject:(id <NSCopying>)object forKey:(NSString *)key;
+```
+
+You can also use subscripts:
+
+``` objective-c
+SAMCache *cache = [SAMCache sharedCache];
+cache[@"answer"] = @42;
+NSLog(@"The answer is %@", cache[@"answer"]);
 ```
 
 See [SAMCache.h](SAMCache.h) for the full list of methods.
