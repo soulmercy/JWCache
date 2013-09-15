@@ -241,7 +241,7 @@
 
 #if TARGET_OS_IPHONE
 
-@import UIKit.UIScreen;
+#import <UIKit/UIScreen.h>
 
 @implementation SAMCache (UIImageAdditions)
 

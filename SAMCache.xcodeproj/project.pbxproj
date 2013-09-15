@@ -315,7 +315,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = "-Weverything";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-auto-import",
+				);
 			};
 			name = Debug;
 		};
@@ -348,7 +351,10 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				WARNING_CFLAGS = "-Weverything";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-auto-import",
+				);
 			};
 			name = Release;
 		};
