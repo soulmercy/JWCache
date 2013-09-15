@@ -1,22 +1,23 @@
 //
-//  SSCache.h
-//  SSCache
+//  SAMCache.h
+//  SAMCache
 //
 //  Created by Sam Soffes on 10/31/11.
 //  Copyright (c) 2011-2013 Sam Soffes. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-@interface SSCache : NSObject
+@interface SAMCache : NSObject
 
-@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *name;
+
 
 ///-------------------------------
 /// @name Getting the Shared Cache
 ///-------------------------------
 
-+ (SSCache *)sharedCache;
++ (SAMCache *)sharedCache;
 
 
 ///-------------------
@@ -62,7 +63,7 @@
 
 #if TARGET_OS_IPHONE
 
-@interface SSCache (UIImageAdditions)
+@interface SAMCache (UIImageAdditions)
 
 - (UIImage *)imageForKey:(NSString *)key;
 - (void)imageForKey:(NSString *)key usingBlock:(void (^)(UIImage *image))block;
