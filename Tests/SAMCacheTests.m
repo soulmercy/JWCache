@@ -57,4 +57,16 @@
 	XCTAssertNil([self.cache objectForKey:@"niling"], @"Reading nil'd object");
 }
 
+
+- (void)testSettingWithSubscript {
+	self.cache[@"subscriptSet"] = @"subset";
+	XCTAssertEqualObjects(@"subset", [self.cache objectForKey:@"subscriptSet"], @"Setting an object with a subscript");
+}
+
+
+- (void)testReadingWithSubscript {
+	[self.cache setObject:@"subread" forKey:@"subscriptRead"];
+	XCTAssertEqualObjects(@"subread", self.cache[@"subscriptRead"], @"Reading an object with a subscript");
+}
+
 @end

@@ -122,7 +122,7 @@
 }
 
 
-- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id<NSCopying> object))block {
+- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id <NSCopying> object))block {
 	if (!block) {
 		return;
 	}
@@ -148,7 +148,7 @@
 
 #pragma mark - Adding and Removing Cached Values
 
-- (void)setObject:(id<NSCopying>)object forKey:(NSString *)key {
+- (void)setObject:(id <NSCopying>)object forKey:(NSString *)key {
 	// Invalid without a key
 	if (!key) {
 		return;
@@ -197,6 +197,18 @@
 		return [self _pathForKey:key];
 	}
 	return nil;
+}
+
+
+#pragma mark - Subscripting
+
+- (id)objectForKeyedSubscript:(NSString *)key {
+	return [self objectForKey:(NSString *)key];
+}
+
+
+- (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key {
+	[self setObject:object forKey:key];
 }
 
 

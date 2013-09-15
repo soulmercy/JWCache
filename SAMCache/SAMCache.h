@@ -62,7 +62,7 @@
 
  @param block A block called on an arbitrary queue with the requested object or `nil` if it does not exist.
  */
-- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id<NSCopying> object))block;
+- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id <NSCopying> object))block;
 
 /**
  Synchronously check if an object exists in the cache without retriving it.
@@ -85,7 +85,7 @@
 
  @param key The key of the object.
  */
-- (void)setObject:(id<NSCopying>)object forKey:(NSString *)key;
+- (void)setObject:(id <NSCopying>)object forKey:(NSString *)key;
 
 /**
  Remove an object from the cache.
@@ -112,6 +112,33 @@
  @return Path to object on disk or `nil` if no object exists for the given `key`.
  */
 - (NSString *)pathForKey:(NSString *)key;
+
+
+///-------------------
+/// @name Subscripting
+///-------------------
+
+/**
+ Synchronously get an object from the cache.
+
+ @param key The key of the object.
+
+ @return The object for the given key or `nil` if it does not exist.
+ 
+ This method behaves the same as `objectForKey:`.
+ */
+- (id)objectForKeyedSubscript:(NSString *)key;
+
+/**
+ Synchronously set an object in the cache for a given key.
+
+ @param object The object to store in the cache.
+
+ @param key The key of the object.
+ 
+ This method behaves the same as `setObject:forKey:`.
+ */
+- (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key;
 
 @end
 
