@@ -13,7 +13,8 @@
 @property (nonatomic) NSCache *cache;
 @property (nonatomic) NSString *cacheDirectory;
 @property (nonatomic, readonly) NSFileManager *fileManager;
-@property (nonatomic) dispatch_queue_t queue;
+@property (nonatomic) dispatch_queue_t callbackQueue;
+@property (nonatomic) dispatch_queue_t diskQueue;
 @end
 
 @implementation SAMCache
@@ -24,7 +25,8 @@
 @synthesize cache = _cache;
 @synthesize cacheDirectory = _cacheDirectory;
 @synthesize fileManager = _fileManager;
-@synthesize queue = _queue;
+@synthesize callbackQueue = _callbackQueue;
+@synthesize diskQueue = _diskQueue;
 
 - (NSCache *)cache {
 	if (!_cache) {
@@ -69,11 +71,12 @@
 
 #pragma mark - Initializing
 
-- (id)initWithName:(NSString *)name {
+- (instancetype)initWithName:(NSString *)name {
 	if ((self = [super init])) {
 		self.name = [name copy];
 		self.cache.name = self.name;
-		self.queue = dispatch_queue_create([name cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_SERIAL);
+		self.callbackQueue = dispatch_queue_create([[name stringByAppendingString:@".callback"] cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_CONCURRENT);
+		self.diskQueue = dispatch_queue_create([[name stringByAppendingString:@".disk"] cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_SERIAL);
 
 		NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
 		self.cacheDirectory = [cachesDirectory stringByAppendingFormat:@"/com.samsoffes.samcache/%@", self.name];
@@ -89,52 +92,54 @@
 #pragma mark - Getting a Cached Value
 
 - (id)objectForKey:(NSString *)key {
+	// Look for the object in the memory cache.
 	__block id object = [self.cache objectForKey:key];
 	if (object) {
 		return object;
 	}
 
-	// Get path if object exists
+	// See if the object has a path on disk.
 	NSString *path = [self pathForKey:key];
 	if (!path) {
 		return nil;
 	}
 
-	// Load object from disk
-	object = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-	if (!object) {
-		// Object was removed from disk before we could read it
-		return nil;
-	}
+	dispatch_sync(self.diskQueue, ^{
+		// Load object from disk, synchronously.
+		object = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+		if (!object) {
+			// Object was removed from disk before we could read it.
+			return;
+		}
+	});
 
-	// Store in cache
-	[self.cache setObject:object forKey:key];
+	// Store the object from disk in the memory cache.
+	if (object) {
+		[self.cache setObject:object forKey:key];
+	}
 
 	return object;
 }
 
 
-- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id object))block {
-	dispatch_sync(self.queue, ^{
-		id object = [self.cache objectForKey:key];
-		if (!object) {
-			object = [NSKeyedUnarchiver unarchiveObjectWithFile:[self _pathForKey:key]];
-			[self.cache setObject:object forKey:key];
-		}
+- (void)objectForKey:(NSString *)key usingBlock:(void (^)(id<NSCopying> object))block {
+	if (!block) {
+		return;
+	}
 
-    __block id blockObject = object;
-		block(blockObject);
+	dispatch_async(self.callbackQueue, ^{
+		block([self objectForKey:key]);
 	});
 }
 
 
 - (BOOL)objectExistsForKey:(NSString *)key {
-	__block BOOL exists = ([self.cache objectForKey:key] != nil);
+	__block BOOL exists = [self.cache objectForKey:key] != nil;
 	if (exists) {
 		return YES;
 	}
 
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(self.diskQueue, ^{
 		exists = [self.fileManager fileExistsAtPath:[self _pathForKey:key]];
 	});
 	return exists;
@@ -143,34 +148,32 @@
 
 #pragma mark - Adding and Removing Cached Values
 
-- (void)setObject:(id)object forKey:(NSString *)key {
-	if (!object) {
+- (void)setObject:(id<NSCopying>)object forKey:(NSString *)key {
+	// Invalid without a key
+	if (!key) {
 		return;
 	}
 
-	dispatch_async(self.queue, ^{
-		NSString *path = [self _pathForKey:key];
+	// If there's no object, delete the key.
+	if (!object) {
+		[self removeObjectForKey:key];
+		return;
+	}
 
-		// Stop if in memory cache or disk cache
-	    id cachedObject = [self.cache objectForKey:key];
-	    if ( [cachedObject isEqual:object] && [self.fileManager fileExistsAtPath:path]) {
-	      return;
-	    }
+	// Save to memory cache
+	[self.cache setObject:object forKey:key];
 
-
-		// Save to memory cache
-		[self.cache setObject:object forKey:key];
-
+	dispatch_sync(self.diskQueue, ^{
 		// Save to disk cache
 		[NSKeyedArchiver archiveRootObject:object toFile:[self _pathForKey:key]];
 	});
 }
 
 
-- (void)removeObjectForKey:(id)key {
+- (void)removeObjectForKey:(NSString *)key {
 	[self.cache removeObjectForKey:key];
 
-	dispatch_async(self.queue, ^{
+	dispatch_async(self.diskQueue, ^{
 		[self.fileManager removeItemAtPath:[self _pathForKey:key] error:nil];
 	});
 }
@@ -179,7 +182,7 @@
 - (void)removeAllObjects {
 	[self.cache removeAllObjects];
 
-	dispatch_async(self.queue, ^{
+	dispatch_async(self.diskQueue, ^{
 		for (NSString *path in [self.fileManager contentsOfDirectoryAtPath:self.cacheDirectory error:nil]) {
 			[self.fileManager removeItemAtPath:[self.cacheDirectory stringByAppendingPathComponent:path] error:nil];
 		}
@@ -217,8 +220,7 @@
 
 
 - (NSString *)_pathForKey:(NSString *)key {
-  key = [self _sanitizeFileNameString: key];
-
+	key = [self _sanitizeFileNameString: key];
 	return [self.cacheDirectory stringByAppendingPathComponent:key];
 }
 
@@ -226,6 +228,8 @@
 
 
 #if TARGET_OS_IPHONE
+
+@import UIKit.UIScreen;
 
 @implementation SAMCache (UIImageAdditions)
 
@@ -256,7 +260,7 @@
 - (void)imageForKey:(NSString *)key usingBlock:(void (^)(UIImage *image))block {
 	key = [[self class] _keyForImageKey:key];
 
-	dispatch_sync(self.queue, ^{
+	dispatch_sync(self.diskQueue, ^{
 		UIImage *image = [self.cache objectForKey:key];
 		if (!image) {
 			image = [[UIImage alloc] initWithContentsOfFile:[self _pathForKey:key]];
@@ -275,15 +279,8 @@
 
 	key = [[self class] _keyForImageKey:key];
 
-	dispatch_async(self.queue, ^{
+	dispatch_async(self.diskQueue, ^{
 		NSString *path = [self _pathForKey:key];
-
-		// Stop if in memory cache or disk cache
-	    id cachedObject = [self.cache objectForKey:key];
-	    if ( [cachedObject isEqual:image] && [self.fileManager fileExistsAtPath:path]) {
-	      return;
-	    }
-
 
 		// Save to memory cache
 		[self.cache setObject:image forKey:key];

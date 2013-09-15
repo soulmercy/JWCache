@@ -394,6 +394,10 @@
 				INFOPLIST_FILE = "Tests/SAMCacheTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-gnu",
+				);
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -410,6 +414,10 @@
 				INFOPLIST_FILE = "Tests/SAMCacheTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-gnu",
+				);
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
