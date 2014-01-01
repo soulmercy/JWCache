@@ -3,7 +3,7 @@
 //  SAMCache
 //
 //  Created by Sam Soffes on 10/31/11.
-//  Copyright (c) 2011-2013 Sam Soffes. All rights reserved.
+//  Copyright (c) 2011-2014 Sam Soffes. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -21,7 +21,7 @@
 
 /**
  Shared cache suitable for all of your caching needs.
- 
+
  @return A shared cache.
  */
 + (SAMCache *)sharedCache;
@@ -34,9 +34,9 @@
 /**
  Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
  case you need to call `removeAllObjects`.
- 
+
  @param name A string to identify the cache.
- 
+
  @return A new cache.
  */
 - (instancetype)initWithName:(NSString *)name;
@@ -66,7 +66,7 @@
 
 /**
  Synchronously check if an object exists in the cache without retriving it.
- 
+
  @param key The key of the object.
 
  @return A boolean specifying if the object exists or not.
@@ -80,7 +80,7 @@
 
 /**
  Synchronously set an object in the cache for a given key.
- 
+
  @param object The object to store in the cache.
 
  @param key The key of the object.
@@ -89,7 +89,7 @@
 
 /**
  Remove an object from the cache.
- 
+
  @param key The key of the object.
  */
 - (void)removeObjectForKey:(NSString *)key;
@@ -124,7 +124,7 @@
  @param key The key of the object.
 
  @return The object for the given key or `nil` if it does not exist.
- 
+
  This method behaves the same as `objectForKey:`.
  */
 - (id)objectForKeyedSubscript:(NSString *)key;
@@ -135,7 +135,7 @@
  @param object The object to store in the cache.
 
  @param key The key of the object.
- 
+
  This method behaves the same as `setObject:forKey:`.
  */
 - (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key;

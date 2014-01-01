@@ -3,7 +3,7 @@
 //  SAMCacheTests
 //
 //  Created by Sam Soffes on 9/15/13.
-//  Copyright (c) 2013 Sam Soffes. All rights reserved.
+//  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
 @import XCTest;
