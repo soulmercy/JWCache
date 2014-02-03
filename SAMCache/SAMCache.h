@@ -176,6 +176,15 @@
  */
 - (void)setImage:(UIImage *)image forKey:(NSString *)key;
 
+/**
+ Synchronously check if an image exists in the cache without retriving it.
+
+ @param key The key of the image.
+
+ @return A boolean specifying if the image exists or not.
+ */
+- (BOOL)imageExistsForKey:(NSString *)key;
+
 @end
 
 #endif

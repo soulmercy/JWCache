@@ -310,6 +310,11 @@
 }
 
 
+- (BOOL)imageExistsForKey:(NSString *)key {
+	return [self objectExistsForKey:[[self class] _keyForImageKey:key]];
+}
+
+
 #pragma mark - Private
 
 + (NSString *)_keyForImageKey:(NSString *)imageKey {
