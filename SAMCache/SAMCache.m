@@ -315,6 +315,11 @@
 }
 
 
+- (void)removeImageForKey:(NSString *)key {
+	[self removeImageForKey:[[self class] _keyForImageKey:key]];
+}
+
+
 #pragma mark - Private
 
 + (NSString *)_keyForImageKey:(NSString *)imageKey {

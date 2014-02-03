@@ -185,6 +185,13 @@
  */
 - (BOOL)imageExistsForKey:(NSString *)key;
 
+/**
+ Remove an image from the cache.
+
+ @param key The key of the image.
+ */
+- (void)removeImageForKey:(NSString *)key;
+
 @end
 
 #endif
