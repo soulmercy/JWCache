@@ -6,14 +6,25 @@
 //  Copyright (c) 2011-2014 Sam Soffes. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface SAMCache : NSObject
+
+///-----------------
+/// @name Properties
+///-----------------
 
 /**
  The name of the cache.
  */
 @property (nonatomic, readonly) NSString *name;
+
+
+/**
+ The directory of the on-disk cache.
+ */
+@property (nonatomic, readonly) NSString *directory;
+
 
 ///-------------------------------
 /// @name Getting the Shared Cache
@@ -33,13 +44,16 @@
 
 /**
  Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
- case you need to call `removeAllObjects`.
+ case you need to call `removeAllObjects` or change the location.
 
  @param name A string to identify the cache.
+ 
+ @param directory A path to the on-disk cache directory. It will be created if it does not exist. If you pass `nil` it
+ will default to `~/Library/Caches/com.samsoffes.samcache/NAME/`.
 
  @return A new cache.
  */
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name directory:(NSString *)directory;
 
 
 ///-----------------------------
@@ -145,7 +159,7 @@
 
 #if TARGET_OS_IPHONE
 
-#import <UIKit/UIImage.h>
+@import UIKit.UIImage;
 
 @interface SAMCache (UIImageAdditions)
 
@@ -175,6 +189,8 @@
  @param key The key of the image.
  */
 - (void)setImage:(UIImage *)image forKey:(NSString *)key;
+
+- (void)setImageData:(NSData *)data forKey:(NSString *)key;
 
 /**
  Synchronously check if an image exists in the cache without retriving it.

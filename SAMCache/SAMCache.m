@@ -10,8 +10,8 @@
 
 @interface SAMCache ()
 @property (nonatomic, readwrite) NSString *name;
+@property (nonatomic, readwrite) NSString *directory;
 @property (nonatomic) NSCache *cache;
-@property (nonatomic) NSString *cacheDirectory;
 @property (nonatomic, readonly) NSFileManager *fileManager;
 @property (nonatomic) dispatch_queue_t callbackQueue;
 @property (nonatomic) dispatch_queue_t diskQueue;
@@ -22,15 +22,15 @@
 #pragma mark - Accessors
 
 @synthesize name = _name;
+@synthesize directory = _directory;
 @synthesize cache = _cache;
-@synthesize cacheDirectory = _cacheDirectory;
 @synthesize fileManager = _fileManager;
 @synthesize callbackQueue = _callbackQueue;
 @synthesize diskQueue = _diskQueue;
 
 - (NSCache *)cache {
 	if (!_cache) {
-		_cache = [[NSCache alloc] init];;
+		_cache = [[NSCache alloc] init];
 	}
 	return _cache;
 }
@@ -63,7 +63,7 @@
 	static SAMCache *sharedCache = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedCache = [[SAMCache alloc] initWithName:@"com.samsoffes.samcache.shared"];
+		sharedCache = [[SAMCache alloc] initWithName:@"com.samsoffes.samcache.shared" directory:nil];
 	});
 	return sharedCache;
 }
@@ -71,18 +71,26 @@
 
 #pragma mark - Initializing
 
-- (instancetype)initWithName:(NSString *)name {
+- (instancetype)initWithName:(NSString *)name directory:(NSString *)directory {
 	if ((self = [super init])) {
 		self.name = [name copy];
 		self.cache.name = self.name;
 		self.callbackQueue = dispatch_queue_create([[name stringByAppendingString:@".callback"] cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_CONCURRENT);
 		self.diskQueue = dispatch_queue_create([[name stringByAppendingString:@".disk"] cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_SERIAL);
 
-		NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-		self.cacheDirectory = [cachesDirectory stringByAppendingFormat:@"/com.samsoffes.samcache/%@", self.name];
+		if (!directory) {
+			NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+			directory = [cachesDirectory stringByAppendingFormat:@"/com.samsoffes.samcache/%@", self.name];
+		}
+		self.directory = directory;
 
-		if (![self.fileManager fileExistsAtPath:self.cacheDirectory]) {
-			[self.fileManager createDirectoryAtPath:self.cacheDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+		if (![self.fileManager fileExistsAtPath:self.directory]) {
+			NSError *error;
+			[self.fileManager createDirectoryAtPath:self.directory withIntermediateDirectories:YES attributes:nil error:&error];
+
+			if (error) {
+				NSLog(@"Failed to create caches directory: %@", error);
+			}
 		}
 	}
 	return self;
@@ -183,8 +191,8 @@
 	[self.cache removeAllObjects];
 
 	dispatch_async(self.diskQueue, ^{
-		for (NSString *path in [self.fileManager contentsOfDirectoryAtPath:self.cacheDirectory error:nil]) {
-			[self.fileManager removeItemAtPath:[self.cacheDirectory stringByAppendingPathComponent:path] error:nil];
+		for (NSString *path in [self.fileManager contentsOfDirectoryAtPath:self.directory error:nil]) {
+			[self.fileManager removeItemAtPath:[self.directory stringByAppendingPathComponent:path] error:nil];
 		}
 	});
 }
@@ -233,7 +241,7 @@
 
 - (NSString *)_pathForKey:(NSString *)key {
 	key = [self _sanitizeFileNameString: key];
-	return [self.cacheDirectory stringByAppendingPathComponent:key];
+	return [self.directory stringByAppendingPathComponent:key];
 }
 
 @end
@@ -241,7 +249,7 @@
 
 #if TARGET_OS_IPHONE
 
-#import <UIKit/UIScreen.h>
+@import UIKit.UIScreen;
 
 @implementation SAMCache (UIImageAdditions)
 
@@ -307,6 +315,11 @@
 		// Save to disk cache
 		[UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
 	});
+}
+
+
+- (void)setImageData:(NSData *)data forKey:(NSString *)key {
+	[self setObject:data forKey:[[self class] _keyForImageKey:key]];
 }
 
 

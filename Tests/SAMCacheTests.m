@@ -24,7 +24,7 @@
 @synthesize cache = _cache;
 
 - (void)setUp {
-	self.cache = [[SAMCache alloc] initWithName:@"test"];
+	self.cache = [[SAMCache alloc] initWithName:@"test" directory:nil];
 }
 
 
