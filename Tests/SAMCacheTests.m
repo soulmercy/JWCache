@@ -6,7 +6,7 @@
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
-@import XCTest;
+#import <XCTest/XCTest.h>
 #import "SAMCache.h"
 
 @interface SAMCache (Private)

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011-2014 Sam Soffes. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 @interface SAMCache : NSObject
 
@@ -171,7 +171,7 @@
 
 #if TARGET_OS_IPHONE
 
-@import UIKit.UIImage;
+#import <UIKit/UIImage.h>
 
 @interface SAMCache (UIImageAdditions)
 
@@ -201,8 +201,6 @@
  @param key The key of the image.
  */
 - (void)setImage:(UIImage *)image forKey:(NSString *)key;
-
-- (void)setImageData:(NSData *)data forKey:(NSString *)key;
 
 /**
  Synchronously check if an image exists in the cache without retriving it.

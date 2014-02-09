@@ -77,7 +77,7 @@
 
 - (instancetype)initWithName:(NSString *)name directory:(NSString *)directory {
 	NSParameterAssert(name);
-	
+
 	if ((self = [super init])) {
 		self.name = [name copy];
 		self.cache.name = self.name;
@@ -106,6 +106,8 @@
 #pragma mark - Getting a Cached Value
 
 - (id)objectForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	// Look for the object in the memory cache.
 	__block id object = [self.cache objectForKey:key];
 	if (object) {
@@ -137,9 +139,8 @@
 
 
 - (void)objectForKey:(NSString *)key usingBlock:(void (^)(id <NSCopying> object))block {
-	if (!block) {
-		return;
-	}
+	NSParameterAssert(key);
+	NSParameterAssert(block);
 
 	dispatch_async(self.callbackQueue, ^{
 		block([self objectForKey:key]);
@@ -148,6 +149,8 @@
 
 
 - (BOOL)objectExistsForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	__block BOOL exists = [self.cache objectForKey:key] != nil;
 	if (exists) {
 		return YES;
@@ -163,10 +166,7 @@
 #pragma mark - Adding and Removing Cached Values
 
 - (void)setObject:(id <NSCopying>)object forKey:(NSString *)key {
-	// Invalid without a key
-	if (!key) {
-		return;
-	}
+	NSParameterAssert(key);
 
 	// If there's no object, delete the key.
 	if (!object) {
@@ -185,6 +185,8 @@
 
 
 - (void)removeObjectForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	[self.cache removeObjectForKey:key];
 
 	dispatch_async(self.diskQueue, ^{
@@ -207,6 +209,8 @@
 #pragma mark - Accessing the Disk Cache
 
 - (NSString *)pathForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	if ([self objectExistsForKey:key]) {
 		return [self _pathForKey:key];
 	}
@@ -217,35 +221,37 @@
 #pragma mark - Subscripting
 
 - (id)objectForKeyedSubscript:(NSString *)key {
+	NSParameterAssert(key);
+
 	return [self objectForKey:(NSString *)key];
 }
 
 
 - (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key {
+	NSParameterAssert(key);
+
 	[self setObject:object forKey:key];
 }
 
 
 #pragma mark - Private
 
-//Remove illegals "Filename" Characters from the filename string
 - (NSString *)_sanitizeFileNameString:(NSString *)fileName {
-  static NSCharacterSet *illegalFileNameCharacters = nil;
+	NSParameterAssert(fileName);
 
+	static NSCharacterSet *illegalFileNameCharacters = nil;
 	static dispatch_once_t illegalCharacterCreationToken;
 	dispatch_once(&illegalCharacterCreationToken, ^{
-		illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString: @"/\\?%*|\"<>:/" ];
+		illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString: @"\\?%*|\"<>:"];
 	});
 
-  if (!illegalFileNameCharacters) {
-    return fileName;
-  }
-
-	return [ [fileName componentsSeparatedByCharactersInSet: illegalFileNameCharacters] componentsJoinedByString: @""];
+	return [[fileName componentsSeparatedByCharactersInSet:illegalFileNameCharacters] componentsJoinedByString:@""];
 }
 
 
 - (NSString *)_pathForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	key = [self _sanitizeFileNameString: key];
 	return [self.directory stringByAppendingPathComponent:key];
 }
@@ -255,11 +261,13 @@
 
 #if TARGET_OS_IPHONE
 
-@import UIKit.UIScreen;
+#import <UIKit/UIScreen.h>
 
 @implementation SAMCache (UIImageAdditions)
 
 - (UIImage *)imageForKey:(NSString *)key {
+	NSParameterAssert(key);
+
 	key = [[self class] _keyForImageKey:key];
 
 	__block UIImage *image = [self.cache objectForKey:key];
@@ -284,6 +292,9 @@
 
 
 - (void)imageForKey:(NSString *)key usingBlock:(void (^)(UIImage *image))block {
+	NSParameterAssert(key);
+	NSParameterAssert(block);
+
 	key = [[self class] _keyForImageKey:key];
 
 	dispatch_sync(self.diskQueue, ^{
@@ -299,10 +310,7 @@
 
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {
-	// Invalid without a key
-	if (!key) {
-		return;
-	}
+	NSParameterAssert(key);
 
 	// If there's no image, delete the key.
 	if (!image) {
@@ -324,17 +332,14 @@
 }
 
 
-- (void)setImageData:(NSData *)data forKey:(NSString *)key {
-	[self setObject:data forKey:[[self class] _keyForImageKey:key]];
-}
-
-
 - (BOOL)imageExistsForKey:(NSString *)key {
+	NSParameterAssert(key);
 	return [self objectExistsForKey:[[self class] _keyForImageKey:key]];
 }
 
 
 - (void)removeImageForKey:(NSString *)key {
+	NSParameterAssert(key);
 	[self removeImageForKey:[[self class] _keyForImageKey:key]];
 }
 
@@ -342,6 +347,7 @@
 #pragma mark - Private
 
 + (NSString *)_keyForImageKey:(NSString *)imageKey {
+	NSParameterAssert(imageKey);
 	NSString *scale = [[UIScreen mainScreen] scale] == 2.0f ? @"@2x" : @"";
 	return [imageKey stringByAppendingFormat:@"%@.png", scale];
 }

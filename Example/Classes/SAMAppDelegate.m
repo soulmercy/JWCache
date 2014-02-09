@@ -16,6 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
 	// TODO
+	NSLog(@"There is no example app yet. Sorry.");
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
