@@ -45,6 +45,18 @@
 /**
  Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
  case you need to call `removeAllObjects` or change the location.
+ 
+ The on-disk cache will be stored at `~/Library/Caches/com.samsoffes.samcache/NAME/`.
+
+ @param name A string to identify the cache.
+
+ @return A new cache.
+ */
+- (instancetype)initWithName:(NSString *)name;
+
+/**
+ Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
+ case you need to call `removeAllObjects` or change the location.
 
  @param name A string to identify the cache.
  

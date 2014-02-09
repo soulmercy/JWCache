@@ -71,7 +71,13 @@
 
 #pragma mark - Initializing
 
+- (instancetype)initWithName:(NSString *)name {
+	return [self initWithName:name directory:nil];
+}
+
 - (instancetype)initWithName:(NSString *)name directory:(NSString *)directory {
+	NSParameterAssert(name);
+	
 	if ((self = [super init])) {
 		self.name = [name copy];
 		self.cache.name = self.name;
