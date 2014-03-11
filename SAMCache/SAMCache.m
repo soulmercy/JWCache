@@ -177,7 +177,7 @@
 	// Save to memory cache
 	[self.cache setObject:object forKey:key];
 
-	dispatch_sync(self.diskQueue, ^{
+	dispatch_async(self.diskQueue, ^{
 		// Save to disk cache
 		[NSKeyedArchiver archiveRootObject:object toFile:[self _pathForKey:key]];
 	});
