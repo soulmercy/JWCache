@@ -20,7 +20,7 @@ cache[@"answer"] = @42;
 NSLog(@"The answer is %@", cache[@"answer"]);
 ```
 
-See [SAMCache.h](SAMCache.h) for the full list of methods.
+See [SAMCache.h](SAMCache/SAMCache.h) for the full list of methods.
 
 ## Adding to Your Project
 
