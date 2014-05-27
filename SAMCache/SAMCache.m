@@ -202,6 +202,7 @@
 		for (NSString *path in [self.fileManager contentsOfDirectoryAtPath:self.directory error:nil]) {
 			[self.fileManager removeItemAtPath:[self.directory stringByAppendingPathComponent:path] error:nil];
 		}
+		[self.fileManager removeItemAtPath:self.directory error:nil];
 	});
 }
 
@@ -340,7 +341,7 @@
 
 - (void)removeImageForKey:(NSString *)key {
 	NSParameterAssert(key);
-	[self removeImageForKey:[[self class] _keyForImageKey:key]];
+	[self removeObjectForKey:[[self class] _keyForImageKey:key]];
 }
 
 
