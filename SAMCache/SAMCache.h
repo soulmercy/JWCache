@@ -111,7 +111,7 @@
 
  @param key The key of the object.
  */
-- (void)setObject:(id <NSCopying>)object forKey:(NSString *)key;
+- (void)setObject:(id <NSCoding>)object forKey:(NSString *)key;
 
 /**
  Remove an object from the cache.
@@ -164,7 +164,7 @@
 
  This method behaves the same as `setObject:forKey:`.
  */
-- (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key;
+- (void)setObject:(id <NSCoding>)object forKeyedSubscript:(NSString *)key;
 
 @end
 
@@ -174,6 +174,15 @@
 #import <UIKit/UIImage.h>
 
 @interface SAMCache (UIImageAdditions)
+
+/**
+ Returns the path to the raw image on disk associated with a given key.
+ 
+ @param key An object identifying the value.
+ 
+ @return Path to object on disk or `nil` if no object exists for the given `key`.
+ */
+- (NSString *)imagePathForKey:(NSString *)key;
 
 /**
  Synchronously get an image from the cache.

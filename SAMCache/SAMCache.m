@@ -165,7 +165,7 @@
 
 #pragma mark - Adding and Removing Cached Values
 
-- (void)setObject:(id <NSCopying>)object forKey:(NSString *)key {
+- (void)setObject:(id <NSCoding>)object forKey:(NSString *)key {
 	NSParameterAssert(key);
 
 	// If there's no object, delete the key.
@@ -228,7 +228,7 @@
 }
 
 
-- (void)setObject:(id <NSCopying>)object forKeyedSubscript:(NSString *)key {
+- (void)setObject:(id <NSCoding>)object forKeyedSubscript:(NSString *)key {
 	NSParameterAssert(key);
 
 	[self setObject:object forKey:key];
@@ -265,6 +265,14 @@
 #import <UIKit/UIScreen.h>
 
 @implementation SAMCache (UIImageAdditions)
+
+- (NSString *)imagePathForKey:(NSString *)key {
+    NSParameterAssert(key);
+    
+	key = [[self class] _keyForImageKey:key];
+    NSString *path = [self pathForKey:key];
+    return path;
+}
 
 - (UIImage *)imageForKey:(NSString *)key {
 	NSParameterAssert(key);
