@@ -179,7 +179,9 @@
 
 	dispatch_async(self.diskQueue, ^{
 		// Save to disk cache
-		[NSKeyedArchiver archiveRootObject:object toFile:[self _pathForKey:key]];
+		NSString *path = [self _pathForKey:key];
+		[NSKeyedArchiver archiveRootObject:object toFile:path];
+		[self _excludeFileFromBackup:[NSURL fileURLWithPath:path]];
 	});
 }
 
@@ -255,6 +257,18 @@
 
 	key = [self _sanitizeFileNameString: key];
 	return [self.directory stringByAppendingPathComponent:key];
+}
+
+- (BOOL)_excludeFileFromBackup:(NSURL *)fileUrl {
+	NSParameterAssert(fileUrl);
+	NSParameterAssert([[NSFileManager defaultManager] fileExistsAtPath:[fileUrl path]]);
+
+	NSError *error;
+	BOOL result = [fileUrl setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
+	if (error) {
+		NSLog(@"Failed to exclude file from backup: %@", error);
+	}
+	return result;
 }
 
 @end
