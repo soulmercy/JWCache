@@ -97,6 +97,9 @@
 			if (error) {
 				NSLog(@"Failed to create caches directory: %@", error);
 			}
+			else {
+				[self _excludeFileFromBackup:[NSURL fileURLWithPath:self.directory]];
+			}
 		}
 	}
 	return self;
@@ -180,8 +183,9 @@
 	dispatch_async(self.diskQueue, ^{
 		// Save to disk cache
 		NSString *path = [self _pathForKey:key];
-		[NSKeyedArchiver archiveRootObject:object toFile:path];
-		[self _excludeFileFromBackup:[NSURL fileURLWithPath:path]];
+		if ([NSKeyedArchiver archiveRootObject:object toFile:path]) {
+			[self _excludeFileFromBackup:[NSURL fileURLWithPath:path]];
+		}
 	});
 }
 
