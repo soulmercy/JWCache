@@ -3,18 +3,17 @@
 //  SAMCache
 //
 //  Created by Sam Soffes on 10/31/11.
-//  Copyright (c) 2011-2014 Sam Soffes. All rights reserved.
+//  Copyright © 2011-2015 Sam Soffes. All rights reserved.
 //
 
 #import "SAMCache.h"
+#import "SAMCache+Private.h"
 
 @interface SAMCache ()
 @property (nonatomic, readwrite) NSString *name;
 @property (nonatomic, readwrite) NSString *directory;
-@property (nonatomic) NSCache *cache;
 @property (nonatomic, readonly) NSFileManager *fileManager;
 @property (nonatomic) dispatch_queue_t callbackQueue;
-@property (nonatomic) dispatch_queue_t diskQueue;
 @end
 
 @implementation SAMCache
@@ -276,109 +275,3 @@
 }
 
 @end
-
-
-#if TARGET_OS_IPHONE
-
-#import <UIKit/UIScreen.h>
-
-@implementation SAMCache (UIImageAdditions)
-
-- (NSString *)imagePathForKey:(NSString *)key {
-    NSParameterAssert(key);
-    
-	key = [[self class] _keyForImageKey:key];
-    NSString *path = [self pathForKey:key];
-    return path;
-}
-
-- (UIImage *)imageForKey:(NSString *)key {
-	NSParameterAssert(key);
-
-	key = [[self class] _keyForImageKey:key];
-
-	__block UIImage *image = [self.cache objectForKey:key];
-	if (image) {
-		return image;
-	}
-
-	// Get path if object exists
-	NSString *path = [self pathForKey:key];
-	if (!path) {
-		return nil;
-	}
-
-	// Load object from disk
-	image = [UIImage imageWithContentsOfFile:path];
-
-	// Store in cache
-	[self.cache setObject:image forKey:key];
-
-	return image;
-}
-
-
-- (void)imageForKey:(NSString *)key usingBlock:(void (^)(UIImage *image))block {
-	NSParameterAssert(key);
-	NSParameterAssert(block);
-
-	key = [[self class] _keyForImageKey:key];
-
-	dispatch_sync(self.diskQueue, ^{
-		UIImage *image = [self.cache objectForKey:key];
-		if (!image) {
-			image = [[UIImage alloc] initWithContentsOfFile:[self _pathForKey:key]];
-			[self.cache setObject:image forKey:key];
-		}
-		__block UIImage *blockImage = image;
-		block(blockImage);
-	});
-}
-
-
-- (void)setImage:(UIImage *)image forKey:(NSString *)key {
-	NSParameterAssert(key);
-
-	// If there's no image, delete the key.
-	if (!image) {
-		[self removeObjectForKey:key];
-		return;
-	}
-
-	key = [[self class] _keyForImageKey:key];
-
-	dispatch_async(self.diskQueue, ^{
-		NSString *path = [self _pathForKey:key];
-
-		// Save to memory cache
-		[self.cache setObject:image forKey:key];
-
-		// Save to disk cache
-		[UIImagePNGRepresentation(image) writeToFile:path atomically:YES];
-	});
-}
-
-
-- (BOOL)imageExistsForKey:(NSString *)key {
-	NSParameterAssert(key);
-	return [self objectExistsForKey:[[self class] _keyForImageKey:key]];
-}
-
-
-- (void)removeImageForKey:(NSString *)key {
-	NSParameterAssert(key);
-	[self removeObjectForKey:[[self class] _keyForImageKey:key]];
-}
-
-
-#pragma mark - Private
-
-+ (NSString *)_keyForImageKey:(NSString *)imageKey {
-	NSParameterAssert(imageKey);
-	NSString *scale = [[UIScreen mainScreen] scale] == 2.0f ? @"@2x" : @"";
-	return [imageKey stringByAppendingFormat:@"%@.png", scale];
-}
-
-@end
-
-#endif
