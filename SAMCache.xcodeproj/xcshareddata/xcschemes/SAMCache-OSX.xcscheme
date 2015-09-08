@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21DA4E391B9B9940004ADBBD"
-               BuildableName = "SAMCache-OSX.framework"
+               BuildableName = "SAMCache.framework"
                BlueprintName = "SAMCache-OSX"
                ReferencedContainer = "container:SAMCache.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21DA4E421B9B9941004ADBBD"
-               BuildableName = "SAMCacheTests-OSX.xctest"
+               BuildableName = "SAMCacheTests.xctest"
                BlueprintName = "SAMCacheTests-OSX"
                ReferencedContainer = "container:SAMCache.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21DA4E391B9B9940004ADBBD"
-            BuildableName = "SAMCache-OSX.framework"
+            BuildableName = "SAMCache.framework"
             BlueprintName = "SAMCache-OSX"
             ReferencedContainer = "container:SAMCache.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21DA4E391B9B9940004ADBBD"
-            BuildableName = "SAMCache-OSX.framework"
+            BuildableName = "SAMCache.framework"
             BlueprintName = "SAMCache-OSX"
             ReferencedContainer = "container:SAMCache.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21DA4E391B9B9940004ADBBD"
-            BuildableName = "SAMCache-OSX.framework"
+            BuildableName = "SAMCache.framework"
             BlueprintName = "SAMCache-OSX"
             ReferencedContainer = "container:SAMCache.xcodeproj">
          </BuildableReference>

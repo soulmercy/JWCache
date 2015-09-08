@@ -772,6 +772,7 @@
 				21DA4E211B9B97E4004ADBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21DA4E221B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -780,6 +781,7 @@
 				21DA4E241B9B97E4004ADBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21DA4E4B1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-OSX" */ = {
 			isa = XCConfigurationList;
@@ -788,6 +790,7 @@
 				21DA4E4D1B9B9941004ADBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21DA4E4E1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-OSX" */ = {
 			isa = XCConfigurationList;
@@ -796,6 +799,7 @@
 				21DA4E501B9B9941004ADBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21DA4E5B1B9B994A004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-watchOS" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +808,7 @@
 				21DA4E5D1B9B994A004ADBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

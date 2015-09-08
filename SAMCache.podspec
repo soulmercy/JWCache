@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'SAMCache'
-  spec.version = '0.3.2'
+  spec.version = '0.3.3'
   spec.summary = 'Simple in memory and on disk cache.'
   spec.description  = 'Simple in memory and on disk cache for iOS and Mac OS X.'
   spec.homepage = 'https://github.com/soffes/SAMCache'
