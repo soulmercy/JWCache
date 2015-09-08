@@ -8,15 +8,15 @@ Pod::Spec.new do |spec|
   spec.source = { :git => 'https://github.com/soffes/SSCache.git', :tag => "v#{spec.version}" }
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
 
-  spec.platform = :osx, '7.0'
+  spec.ios.deployment_target = '7.0'
   spec.ios.frameworks = 'Foundation', 'UIKit'
   spec.ios.source_files = ['SAMCache/SAMCache.{h,m}', 'SAMCache/SAMCache+Private.{h,m}', 'SAMCache/SAMCache+Image.{h,m}']
 
-  spec.platform = :watchos, '2.0'
+  spec.watchos.deployment_target = '2.0'
   spec.watchos.frameworks = 'Foundation', 'WatchKit'
   spec.watchos.source_files = ['SAMCache/SAMCache.{h,m}', 'SAMCache/SAMCache+Private.{h,m}', 'SAMCache/SAMCache+Image.{h,m}']
 
-  spec.platform = :osx, '10.9'
+  spec.osx.deployment_target = '10.9'
   spec.osx.frameworks = 'Foundation'
   spec.osx.source_files = ['SAMCache/SAMCache.{h,m}', 'SAMCache/SAMCache+Private.{h,m}']
 end
