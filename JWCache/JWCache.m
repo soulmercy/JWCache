@@ -1,22 +1,21 @@
 //
-//  SAMCache.m
-//  SAMCache
+//  JWCache.m
+//  JWCache
 //
-//  Created by Sam Soffes on 10/31/11.
-//  Copyright © 2011-2015 Sam Soffes. All rights reserved.
+//  Created by Jeffery Wang on 8/18/16.
 //
 
-#import "SAMCache.h"
-#import "SAMCache+Private.h"
+#import "JWCache.h"
+#import "JWCache+Private.h"
 
-@interface SAMCache ()
+@interface JWCache ()
 @property (nonatomic, readwrite) NSString *name;
 @property (nonatomic, readwrite) NSString *directory;
 @property (nonatomic, readonly) NSFileManager *fileManager;
 @property (nonatomic) dispatch_queue_t callbackQueue;
 @end
 
-@implementation SAMCache
+@implementation JWCache
 
 #pragma mark - Accessors
 
@@ -46,7 +45,7 @@
 #pragma mark - NSObject
 
 - (id)init {
-	NSLog(@"[SAMCache] You must initalize SAMCache using `initWithName:`.");
+	NSLog(@"[JWCache] You must initalize JWCache using `initWithName:`.");
 	return nil;
 }
 
@@ -58,11 +57,11 @@
 
 #pragma mark - Getting the Shared Cache
 
-+ (SAMCache *)sharedCache {
-	static SAMCache *sharedCache = nil;
++ (JWCache *)sharedCache {
+	static JWCache *sharedCache = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedCache = [[SAMCache alloc] initWithName:@"com.samsoffes.samcache.shared" directory:nil];
+		sharedCache = [[JWCache alloc] initWithName:@"in.elloc.jwcache.shared" directory:nil];
 	});
 	return sharedCache;
 }
@@ -85,7 +84,7 @@
 
 		if (!directory) {
 			NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-			directory = [cachesDirectory stringByAppendingFormat:@"/com.samsoffes.samcache/%@", self.name];
+			directory = [cachesDirectory stringByAppendingFormat:@"/in.elloc.jwcache/%@", self.name];
 		}
 		self.directory = directory;
 

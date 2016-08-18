@@ -1,4 +1,4 @@
-# SAMCache
+# JWCache
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -17,13 +17,13 @@ The API is simple.
 You can also use subscripts:
 
 ``` objective-c
-SAMCache *cache = [SAMCache sharedCache];
+JWCache *cache = [JWCache sharedCache];
 cache[@"answer"] = @42;
 NSLog(@"The answer is %@", cache[@"answer"]);
 ```
 
-See [SAMCache.h](SAMCache/SAMCache.h) for the full list of methods.
+See [JWCache.h](JWCache/JWCache.h) for the full list of methods.
 
 ## Adding to Your Project
 
-Simply add `SAMCache.h` and `SAMCache.m` to your project or if you're using CocoaPods, simply add 'SAMCache' to your Podfile.
+Simply add `JWCache.h` and `JWCache.m` to your project or if you're using CocoaPods, simply add 'JWCache' to your Podfile.

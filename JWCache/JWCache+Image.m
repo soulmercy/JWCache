@@ -1,13 +1,12 @@
 //
-//  SAMCache+Image.m
-//  SAMCache
+//  JWCache+Image.m
+//  JWCache
 //
-//  Created by Sam Soffes on 9/5/15.
-//  Copyright © 2015 Sam Soffes. All rights reserved.
+//  Created by Jeffery Wang on 8/18/16.
 //
 
-#import "SAMCache+Image.h"
-#import "SAMCache+Private.h"
+#import "JWCache+Image.h"
+#import "JWCache+Private.h"
 
 @import UIKit.UIImage;
 
@@ -17,7 +16,7 @@
 	@import WatchKit.WKInterfaceDevice;
 #endif
 
-@implementation SAMCache (UIImageAdditions)
+@implementation JWCache (UIImageAdditions)
 
 - (NSString *)imagePathForKey:(NSString *)key {
 	NSParameterAssert(key);

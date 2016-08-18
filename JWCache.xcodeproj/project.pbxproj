@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21DA4E181B9B97E4004ADBBD /* SAMCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA4E0E1B9B97E4004ADBBD /* SAMCache.framework */; settings = {ASSET_TAGS = (); }; };
-		21DA4E2E1B9B9856004ADBBD /* SAMCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129FAAE17E63AA300BC8208 /* SAMCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21DA4E2F1B9B985B004ADBBD /* SAMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* SAMCache.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E301B9B985B004ADBBD /* SAMCache+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E071B9B9762004ADBBD /* SAMCache+Image.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E311B9B985C004ADBBD /* SAMCache+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E061B9B9762004ADBBD /* SAMCache+Image.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21DA4E321B9B989D004ADBBD /* SAMCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E2C1B9B983A004ADBBD /* SAMCacheTests.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E341B9B98CD004ADBBD /* SAMCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* SAMCache+Private.h */; settings = {ASSET_TAGS = (); }; };
-		21DA4E441B9B9941004ADBBD /* SAMCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA4E3A1B9B9940004ADBBD /* SAMCache.framework */; settings = {ASSET_TAGS = (); }; };
-		21DA4E5E1B9B995C004ADBBD /* SAMCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E2C1B9B983A004ADBBD /* SAMCacheTests.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E5F1B9B995F004ADBBD /* SAMCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* SAMCache+Private.h */; settings = {ASSET_TAGS = (); }; };
-		21DA4E601B9B9960004ADBBD /* SAMCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* SAMCache+Private.h */; settings = {ASSET_TAGS = (); }; };
-		21DA4E611B9B9963004ADBBD /* SAMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* SAMCache.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E621B9B9968004ADBBD /* SAMCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* SAMCache.m */; settings = {ASSET_TAGS = (); }; };
-		21DA4E631B9B996A004ADBBD /* SAMCache+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E071B9B9762004ADBBD /* SAMCache+Image.m */; settings = {ASSET_TAGS = (); }; };
+		21DA4E181B9B97E4004ADBBD /* JWCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA4E0E1B9B97E4004ADBBD /* JWCache.framework */; };
+		21DA4E2E1B9B9856004ADBBD /* JWCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129FAAE17E63AA300BC8208 /* JWCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21DA4E2F1B9B985B004ADBBD /* JWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* JWCache.m */; };
+		21DA4E301B9B985B004ADBBD /* JWCache+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E071B9B9762004ADBBD /* JWCache+Image.m */; };
+		21DA4E311B9B985C004ADBBD /* JWCache+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E061B9B9762004ADBBD /* JWCache+Image.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21DA4E321B9B989D004ADBBD /* JWCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E2C1B9B983A004ADBBD /* JWCacheTests.m */; };
+		21DA4E341B9B98CD004ADBBD /* JWCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* JWCache+Private.h */; };
+		21DA4E441B9B9941004ADBBD /* JWCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA4E3A1B9B9940004ADBBD /* JWCache.framework */; };
+		21DA4E5E1B9B995C004ADBBD /* JWCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E2C1B9B983A004ADBBD /* JWCacheTests.m */; };
+		21DA4E5F1B9B995F004ADBBD /* JWCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* JWCache+Private.h */; };
+		21DA4E601B9B9960004ADBBD /* JWCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DA4E331B9B98BC004ADBBD /* JWCache+Private.h */; };
+		21DA4E611B9B9963004ADBBD /* JWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* JWCache.m */; };
+		21DA4E621B9B9968004ADBBD /* JWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2129FAAF17E63AA300BC8208 /* JWCache.m */; };
+		21DA4E631B9B996A004ADBBD /* JWCache+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DA4E071B9B9762004ADBBD /* JWCache+Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,23 +41,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2129FAAE17E63AA300BC8208 /* SAMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMCache.h; sourceTree = "<group>"; };
-		2129FAAF17E63AA300BC8208 /* SAMCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMCache.m; sourceTree = "<group>"; };
+		2129FAAE17E63AA300BC8208 /* JWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWCache.h; sourceTree = "<group>"; };
+		2129FAAF17E63AA300BC8208 /* JWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWCache.m; sourceTree = "<group>"; };
 		218C74C417E63A64008F4A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		218C74C617E63A64008F4A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		218C74C817E63A64008F4A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		218C74DD17E63A64008F4A6B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		21DA4E061B9B9762004ADBBD /* SAMCache+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SAMCache+Image.h"; sourceTree = "<group>"; };
-		21DA4E071B9B9762004ADBBD /* SAMCache+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SAMCache+Image.m"; sourceTree = "<group>"; };
-		21DA4E0E1B9B97E4004ADBBD /* SAMCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAMCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21DA4E171B9B97E4004ADBBD /* SAMCacheTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAMCacheTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DA4E061B9B9762004ADBBD /* JWCache+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JWCache+Image.h"; sourceTree = "<group>"; };
+		21DA4E071B9B9762004ADBBD /* JWCache+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JWCache+Image.m"; sourceTree = "<group>"; };
+		21DA4E0E1B9B97E4004ADBBD /* JWCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DA4E171B9B97E4004ADBBD /* JWCacheTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWCacheTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21DA4E251B9B9818004ADBBD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21DA4E281B9B9825004ADBBD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21DA4E2C1B9B983A004ADBBD /* SAMCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMCacheTests.m; sourceTree = "<group>"; };
-		21DA4E331B9B98BC004ADBBD /* SAMCache+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SAMCache+Private.h"; sourceTree = "<group>"; };
-		21DA4E3A1B9B9940004ADBBD /* SAMCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAMCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21DA4E431B9B9941004ADBBD /* SAMCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAMCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21DA4E561B9B994A004ADBBD /* SAMCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAMCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DA4E2C1B9B983A004ADBBD /* JWCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWCacheTests.m; sourceTree = "<group>"; };
+		21DA4E331B9B98BC004ADBBD /* JWCache+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWCache+Private.h"; sourceTree = "<group>"; };
+		21DA4E3A1B9B9940004ADBBD /* JWCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DA4E431B9B9941004ADBBD /* JWCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JWCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21DA4E561B9B994A004ADBBD /* JWCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E181B9B97E4004ADBBD /* SAMCache.framework in Frameworks */,
+				21DA4E181B9B97E4004ADBBD /* JWCache.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E441B9B9941004ADBBD /* SAMCache.framework in Frameworks */,
+				21DA4E441B9B9941004ADBBD /* JWCache.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,23 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2129FAAD17E63AA300BC8208 /* SAMCache */ = {
+		2129FAAD17E63AA300BC8208 /* JWCache */ = {
 			isa = PBXGroup;
 			children = (
-				2129FAAE17E63AA300BC8208 /* SAMCache.h */,
-				2129FAAF17E63AA300BC8208 /* SAMCache.m */,
-				21DA4E061B9B9762004ADBBD /* SAMCache+Image.h */,
-				21DA4E071B9B9762004ADBBD /* SAMCache+Image.m */,
-				21DA4E331B9B98BC004ADBBD /* SAMCache+Private.h */,
+				2129FAAE17E63AA300BC8208 /* JWCache.h */,
+				2129FAAF17E63AA300BC8208 /* JWCache.m */,
+				21DA4E061B9B9762004ADBBD /* JWCache+Image.h */,
+				21DA4E071B9B9762004ADBBD /* JWCache+Image.m */,
+				21DA4E331B9B98BC004ADBBD /* JWCache+Private.h */,
 				21DA4E251B9B9818004ADBBD /* Info.plist */,
 			);
-			path = SAMCache;
+			path = JWCache;
 			sourceTree = "<group>";
 		};
 		218C74B817E63A64008F4A6B = {
 			isa = PBXGroup;
 			children = (
-				2129FAAD17E63AA300BC8208 /* SAMCache */,
+				2129FAAD17E63AA300BC8208 /* JWCache */,
 				21DA4E271B9B9825004ADBBD /* Tests */,
 				218C74C317E63A64008F4A6B /* Frameworks */,
 				218C74C217E63A64008F4A6B /* Products */,
@@ -127,11 +127,11 @@
 		218C74C217E63A64008F4A6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21DA4E0E1B9B97E4004ADBBD /* SAMCache.framework */,
-				21DA4E171B9B97E4004ADBBD /* SAMCacheTests-iOS.xctest */,
-				21DA4E3A1B9B9940004ADBBD /* SAMCache.framework */,
-				21DA4E431B9B9941004ADBBD /* SAMCacheTests.xctest */,
-				21DA4E561B9B994A004ADBBD /* SAMCache.framework */,
+				21DA4E0E1B9B97E4004ADBBD /* JWCache.framework */,
+				21DA4E171B9B97E4004ADBBD /* JWCacheTests-iOS.xctest */,
+				21DA4E3A1B9B9940004ADBBD /* JWCache.framework */,
+				21DA4E431B9B9941004ADBBD /* JWCacheTests.xctest */,
+				21DA4E561B9B994A004ADBBD /* JWCache.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				21DA4E281B9B9825004ADBBD /* Info.plist */,
-				21DA4E2C1B9B983A004ADBBD /* SAMCacheTests.m */,
+				21DA4E2C1B9B983A004ADBBD /* JWCacheTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -163,9 +163,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E341B9B98CD004ADBBD /* SAMCache+Private.h in Headers */,
-				21DA4E2E1B9B9856004ADBBD /* SAMCache.h in Headers */,
-				21DA4E311B9B985C004ADBBD /* SAMCache+Image.h in Headers */,
+				21DA4E341B9B98CD004ADBBD /* JWCache+Private.h in Headers */,
+				21DA4E2E1B9B9856004ADBBD /* JWCache.h in Headers */,
+				21DA4E311B9B985C004ADBBD /* JWCache+Image.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +173,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E601B9B9960004ADBBD /* SAMCache+Private.h in Headers */,
+				21DA4E601B9B9960004ADBBD /* JWCache+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,16 +181,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E5F1B9B995F004ADBBD /* SAMCache+Private.h in Headers */,
+				21DA4E5F1B9B995F004ADBBD /* JWCache+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		21DA4E0D1B9B97E4004ADBBD /* SAMCache-iOS */ = {
+		21DA4E0D1B9B97E4004ADBBD /* JWCache-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21DA4E1F1B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-iOS" */;
+			buildConfigurationList = 21DA4E1F1B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-iOS" */;
 			buildPhases = (
 				21DA4E091B9B97E4004ADBBD /* Sources */,
 				21DA4E0A1B9B97E4004ADBBD /* Frameworks */,
@@ -201,14 +201,14 @@
 			);
 			dependencies = (
 			);
-			name = "SAMCache-iOS";
+			name = "JWCache-iOS";
 			productName = "SAMCache-iOS";
-			productReference = 21DA4E0E1B9B97E4004ADBBD /* SAMCache.framework */;
+			productReference = 21DA4E0E1B9B97E4004ADBBD /* JWCache.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		21DA4E161B9B97E4004ADBBD /* SAMCacheTests-iOS */ = {
+		21DA4E161B9B97E4004ADBBD /* JWCacheTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21DA4E221B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-iOS" */;
+			buildConfigurationList = 21DA4E221B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "JWCacheTests-iOS" */;
 			buildPhases = (
 				21DA4E131B9B97E4004ADBBD /* Sources */,
 				21DA4E141B9B97E4004ADBBD /* Frameworks */,
@@ -219,14 +219,14 @@
 			dependencies = (
 				21DA4E1A1B9B97E4004ADBBD /* PBXTargetDependency */,
 			);
-			name = "SAMCacheTests-iOS";
+			name = "JWCacheTests-iOS";
 			productName = "SAMCache-iOSTests";
-			productReference = 21DA4E171B9B97E4004ADBBD /* SAMCacheTests-iOS.xctest */;
+			productReference = 21DA4E171B9B97E4004ADBBD /* JWCacheTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21DA4E391B9B9940004ADBBD /* SAMCache-OSX */ = {
+		21DA4E391B9B9940004ADBBD /* JWCache-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21DA4E4B1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-OSX" */;
+			buildConfigurationList = 21DA4E4B1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-OSX" */;
 			buildPhases = (
 				21DA4E351B9B9940004ADBBD /* Sources */,
 				21DA4E361B9B9940004ADBBD /* Frameworks */,
@@ -237,14 +237,14 @@
 			);
 			dependencies = (
 			);
-			name = "SAMCache-OSX";
+			name = "JWCache-OSX";
 			productName = "SAMCache-OSX";
-			productReference = 21DA4E3A1B9B9940004ADBBD /* SAMCache.framework */;
+			productReference = 21DA4E3A1B9B9940004ADBBD /* JWCache.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		21DA4E421B9B9941004ADBBD /* SAMCacheTests-OSX */ = {
+		21DA4E421B9B9941004ADBBD /* JWCacheTests-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21DA4E4E1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-OSX" */;
+			buildConfigurationList = 21DA4E4E1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "JWCacheTests-OSX" */;
 			buildPhases = (
 				21DA4E3F1B9B9941004ADBBD /* Sources */,
 				21DA4E401B9B9941004ADBBD /* Frameworks */,
@@ -255,14 +255,14 @@
 			dependencies = (
 				21DA4E461B9B9941004ADBBD /* PBXTargetDependency */,
 			);
-			name = "SAMCacheTests-OSX";
+			name = "JWCacheTests-OSX";
 			productName = "SAMCache-OSXTests";
-			productReference = 21DA4E431B9B9941004ADBBD /* SAMCacheTests.xctest */;
+			productReference = 21DA4E431B9B9941004ADBBD /* JWCacheTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21DA4E551B9B994A004ADBBD /* SAMCache-watchOS */ = {
+		21DA4E551B9B994A004ADBBD /* JWCache-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21DA4E5B1B9B994A004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-watchOS" */;
+			buildConfigurationList = 21DA4E5B1B9B994A004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-watchOS" */;
 			buildPhases = (
 				21DA4E511B9B994A004ADBBD /* Sources */,
 				21DA4E521B9B994A004ADBBD /* Frameworks */,
@@ -273,9 +273,9 @@
 			);
 			dependencies = (
 			);
-			name = "SAMCache-watchOS";
+			name = "JWCache-watchOS";
 			productName = "SAMCache-watchOS";
-			productReference = 21DA4E561B9B994A004ADBBD /* SAMCache.framework */;
+			productReference = 21DA4E561B9B994A004ADBBD /* JWCache.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -284,9 +284,9 @@
 		218C74B917E63A64008F4A6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = SAM;
+				CLASSPREFIX = JW;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Sam Soffes";
+				ORGANIZATIONNAME = "Jeffery Wang";
 				TargetAttributes = {
 					21DA4E0D1B9B97E4004ADBBD = {
 						CreatedOnToolsVersion = 7.0;
@@ -305,7 +305,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 218C74BC17E63A64008F4A6B /* Build configuration list for PBXProject "SAMCache" */;
+			buildConfigurationList = 218C74BC17E63A64008F4A6B /* Build configuration list for PBXProject "JWCache" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -317,11 +317,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21DA4E0D1B9B97E4004ADBBD /* SAMCache-iOS */,
-				21DA4E161B9B97E4004ADBBD /* SAMCacheTests-iOS */,
-				21DA4E391B9B9940004ADBBD /* SAMCache-OSX */,
-				21DA4E421B9B9941004ADBBD /* SAMCacheTests-OSX */,
-				21DA4E551B9B994A004ADBBD /* SAMCache-watchOS */,
+				21DA4E0D1B9B97E4004ADBBD /* JWCache-iOS */,
+				21DA4E161B9B97E4004ADBBD /* JWCacheTests-iOS */,
+				21DA4E391B9B9940004ADBBD /* JWCache-OSX */,
+				21DA4E421B9B9941004ADBBD /* JWCacheTests-OSX */,
+				21DA4E551B9B994A004ADBBD /* JWCache-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -369,8 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E2F1B9B985B004ADBBD /* SAMCache.m in Sources */,
-				21DA4E301B9B985B004ADBBD /* SAMCache+Image.m in Sources */,
+				21DA4E2F1B9B985B004ADBBD /* JWCache.m in Sources */,
+				21DA4E301B9B985B004ADBBD /* JWCache+Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E321B9B989D004ADBBD /* SAMCacheTests.m in Sources */,
+				21DA4E321B9B989D004ADBBD /* JWCacheTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E611B9B9963004ADBBD /* SAMCache.m in Sources */,
+				21DA4E611B9B9963004ADBBD /* JWCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E5E1B9B995C004ADBBD /* SAMCacheTests.m in Sources */,
+				21DA4E5E1B9B995C004ADBBD /* JWCacheTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,8 +402,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DA4E631B9B996A004ADBBD /* SAMCache+Image.m in Sources */,
-				21DA4E621B9B9968004ADBBD /* SAMCache.m in Sources */,
+				21DA4E631B9B996A004ADBBD /* JWCache+Image.m in Sources */,
+				21DA4E621B9B9968004ADBBD /* JWCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,12 +412,12 @@
 /* Begin PBXTargetDependency section */
 		21DA4E1A1B9B97E4004ADBBD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21DA4E0D1B9B97E4004ADBBD /* SAMCache-iOS */;
+			target = 21DA4E0D1B9B97E4004ADBBD /* JWCache-iOS */;
 			targetProxy = 21DA4E191B9B97E4004ADBBD /* PBXContainerItemProxy */;
 		};
 		21DA4E461B9B9941004ADBBD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21DA4E391B9B9940004ADBBD /* SAMCache-OSX */;
+			target = 21DA4E391B9B9940004ADBBD /* JWCache-OSX */;
 			targetProxy = 21DA4E451B9B9941004ADBBD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -519,12 +519,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "$(SRCROOT)/SAMCache/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JWCache/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.jwcache;
+				PRODUCT_NAME = JWCache;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -546,12 +546,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "$(SRCROOT)/SAMCache/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JWCache/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.jwcache;
+				PRODUCT_NAME = JWCache;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -572,7 +572,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samsoffes.SAMCache-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.elloc.JWCache-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -591,7 +591,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samsoffes.SAMCache-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.elloc.JWCache-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -612,12 +612,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "$(SRCROOT)/SAMCache/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JWCache/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.cahe;
+				PRODUCT_NAME = JWCache;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -642,12 +642,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "$(SRCROOT)/SAMCache/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JWCache/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.cahe;
+				PRODUCT_NAME = JWCache;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -669,8 +669,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samsoffes.SAMCache-OSXTests";
-				PRODUCT_NAME = SAMCacheTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "in.elloc.JWCache-OSXTests";
+				PRODUCT_NAME = JWCacheTests;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -690,8 +690,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samsoffes.SAMCache-OSXTests";
-				PRODUCT_NAME = SAMCacheTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "in.elloc.JWCache-OSXTests";
+				PRODUCT_NAME = JWCacheTests;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -710,12 +710,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SAMCache/Info.plist;
+				INFOPLIST_FILE = JWCache/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.cache;
+				PRODUCT_NAME = JWCache;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -739,12 +739,12 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SAMCache/Info.plist;
+				INFOPLIST_FILE = JWCache/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.cache;
-				PRODUCT_NAME = SAMCache;
+				PRODUCT_BUNDLE_IDENTIFIER = in.elloc.cache;
+				PRODUCT_NAME = JWCache;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -756,7 +756,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		218C74BC17E63A64008F4A6B /* Build configuration list for PBXProject "SAMCache" */ = {
+		218C74BC17E63A64008F4A6B /* Build configuration list for PBXProject "JWCache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				218C74EB17E63A64008F4A6B /* Debug */,
@@ -765,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21DA4E1F1B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-iOS" */ = {
+		21DA4E1F1B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21DA4E201B9B97E4004ADBBD /* Debug */,
@@ -774,7 +774,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21DA4E221B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-iOS" */ = {
+		21DA4E221B9B97E4004ADBBD /* Build configuration list for PBXNativeTarget "JWCacheTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21DA4E231B9B97E4004ADBBD /* Debug */,
@@ -783,7 +783,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21DA4E4B1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-OSX" */ = {
+		21DA4E4B1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21DA4E4C1B9B9941004ADBBD /* Debug */,
@@ -792,7 +792,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21DA4E4E1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "SAMCacheTests-OSX" */ = {
+		21DA4E4E1B9B9941004ADBBD /* Build configuration list for PBXNativeTarget "JWCacheTests-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21DA4E4F1B9B9941004ADBBD /* Debug */,
@@ -801,7 +801,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21DA4E5B1B9B994A004ADBBD /* Build configuration list for PBXNativeTarget "SAMCache-watchOS" */ = {
+		21DA4E5B1B9B994A004ADBBD /* Build configuration list for PBXNativeTarget "JWCache-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21DA4E5C1B9B994A004ADBBD /* Debug */,

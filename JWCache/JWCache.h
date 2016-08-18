@@ -1,14 +1,13 @@
 //
-//  SAMCache.h
-//  SAMCache
+//  JWCache.h
+//  JWCache
 //
-//  Created by Sam Soffes on 10/31/11.
-//  Copyright © 2011-2015 Sam Soffes. All rights reserved.
+//  Created by Jeffery Wang on 8/18/16.
 //
 
 @import Foundation;
 
-@interface SAMCache : NSObject
+@interface JWCache : NSObject
 
 ///-----------------
 /// @name Properties
@@ -35,7 +34,7 @@
 
  @return A shared cache.
  */
-+ (SAMCache *)sharedCache;
++ (JWCache *)sharedCache;
 
 
 ///-------------------
@@ -46,7 +45,7 @@
  Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
  case you need to call `removeAllObjects` or change the location.
  
- The on-disk cache will be stored at `~/Library/Caches/com.samsoffes.samcache/NAME/`.
+ The on-disk cache will be stored at `~/Library/Caches/in.elloc.jwcache/NAME/`.
 
  @param name A string to identify the cache.
 
@@ -61,7 +60,7 @@
  @param name A string to identify the cache.
  
  @param directory A path to the on-disk cache directory. It will be created if it does not exist. If you pass `nil` it
- will default to `~/Library/Caches/com.samsoffes.samcache/NAME/`.
+ will default to `~/Library/Caches/in.elloc.jwcache/NAME/`.
 
  @return A new cache.
  */
@@ -170,5 +169,5 @@
 
 
 #if TARGET_OS_IPHONE
-#import <SAMCache/SAMCache+Image.h>
+#import <JWCache/JWCache+Image.h>
 #endif

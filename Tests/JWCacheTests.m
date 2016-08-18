@@ -1,30 +1,29 @@
 //
-//  SAMCacheTests.m
-//  SAMCacheTests
+//  JWCacheTests.m
+//  JWCacheTests
 //
-//  Created by Sam Soffes on 9/15/13.
-//  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
+//  Created by Jeffery Wang on 8/18/16.
 //
 
 @import XCTest;
-#import "SAMCache.h"
+#import "JWCache.h"
 
-@interface SAMCache (Private)
+@interface JWCache (Private)
 @property (nonatomic, readonly) NSCache *cache;
 @end
 
-@interface SAMCacheTests : XCTestCase
+@interface JWCacheTests : XCTestCase
 
-@property (nonatomic) SAMCache *cache;
+@property (nonatomic) JWCache *cache;
 
 @end
 
-@implementation SAMCacheTests
+@implementation JWCacheTests
 
 @synthesize cache = _cache;
 
 - (void)setUp {
-	self.cache = [[SAMCache alloc] initWithName:@"test" directory:nil];
+	self.cache = [[JWCache alloc] initWithName:@"test" directory:nil];
 }
 
 

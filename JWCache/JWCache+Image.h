@@ -1,16 +1,15 @@
 //
-//  SAMCache+Image.h
-//  SAMCache
+//  JWCache+Image.h
+//  JWCache
 //
-//  Created by Sam Soffes on 9/5/15.
-//  Copyright © 2015 Sam Soffes. All rights reserved.
+//  Created by Jeffery Wang on 8/18/16.
 //
 
-#import "SAMCache.h"
+#import "JWCache.h"
 
 @class UIImage;
 
-@interface SAMCache (UIImageAdditions)
+@interface JWCache (UIImageAdditions)
 
 /**
  Returns the path to the raw image on disk associated with a given key.
