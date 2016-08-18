@@ -3,9 +3,9 @@ Pod::Spec.new do |spec|
   spec.version = '0.0.1'
   spec.summary = 'Simple in memory and on disk cache.'
   spec.description  = 'Simple in memory and on disk cache for iOS and Mac OS X.'
-  spec.homepage = 'https://github.com/soulmercy/JWCache'
+  spec.homepage = 'http://gitlab.txxia.com:81/wangjunwu/JWCache.git'
   spec.author = { 'Jeffery Wang' => 'weiwu.ms@gmail.com' }
-  spec.source = { :git => 'https://github.com/soulmercy/JWCache.git', :tag => "v#{spec.version}" }
+  spec.source = { :git => 'http://gitlab.txxia.com:81/wangjunwu/JWCache.git', :tag => "v#{spec.version}" }
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.ios.deployment_target = '7.0'
