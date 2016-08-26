@@ -45,7 +45,7 @@
  Initialize a separate cache from the shared cache. It may be handy to make a separate cache from the shared cache in
  case you need to call `removeAllObjects` or change the location.
  
- The on-disk cache will be stored at `~/Library/Caches/in.elloc.jwcache/NAME/`.
+ The on-disk cache will be stored at `~/Library/Caches/cn.wandougongzhu.jwcache/NAME/`.
 
  @param name A string to identify the cache.
 
@@ -60,7 +60,7 @@
  @param name A string to identify the cache.
  
  @param directory A path to the on-disk cache directory. It will be created if it does not exist. If you pass `nil` it
- will default to `~/Library/Caches/in.elloc.jwcache/NAME/`.
+ will default to `~/Library/Caches/cn.wandougongzhu.jwcache/NAME/`.
 
  @return A new cache.
  */

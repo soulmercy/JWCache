@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'JWCache'
-  spec.version = '0.0.1'
+  spec.version = '0.0.2'
   spec.summary = 'Simple in memory and on disk cache.'
   spec.description  = 'Simple in memory and on disk cache for iOS and Mac OS X.'
   spec.homepage = 'http://gitlab.txxia.com:81/wangjunwu/JWCache.git'

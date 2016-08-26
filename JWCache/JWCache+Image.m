@@ -46,7 +46,9 @@
 	image = [UIImage imageWithContentsOfFile:path];
 
 	// Store in cache
-	[self.cache setObject:image forKey:key];
+    if (image) {
+        [self.cache setObject:image forKey:key];
+    }
 
 	return image;
 }
@@ -62,7 +64,9 @@
 		UIImage *image = [self.cache objectForKey:key];
 		if (!image) {
 			image = [[UIImage alloc] initWithContentsOfFile:[self _pathForKey:key]];
-			[self.cache setObject:image forKey:key];
+            if(image) {
+                [self.cache setObject:image forKey:key];
+            }
 		}
 		__block UIImage *blockImage = image;
 		block(blockImage);

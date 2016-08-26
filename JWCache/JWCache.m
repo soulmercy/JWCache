@@ -61,7 +61,7 @@
 	static JWCache *sharedCache = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedCache = [[JWCache alloc] initWithName:@"in.elloc.jwcache.shared" directory:nil];
+		sharedCache = [[JWCache alloc] initWithName:@"cn.wandougongzhu.jwcache.shared" directory:nil];
 	});
 	return sharedCache;
 }
@@ -84,7 +84,7 @@
 
 		if (!directory) {
 			NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-			directory = [cachesDirectory stringByAppendingFormat:@"/in.elloc.jwcache/%@", self.name];
+			directory = [cachesDirectory stringByAppendingFormat:@"/cn.wandougongzhu.jwcache/%@", self.name];
 		}
 		self.directory = directory;
 
@@ -206,7 +206,6 @@
 		for (NSString *path in [self.fileManager contentsOfDirectoryAtPath:self.directory error:nil]) {
 			[self.fileManager removeItemAtPath:[self.directory stringByAppendingPathComponent:path] error:nil];
 		}
-		[self.fileManager removeItemAtPath:self.directory error:nil];
 	});
 }
 
